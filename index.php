@@ -10,9 +10,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">-->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/flat-ui/2.0/css/bootstrap.css">
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/flat-ui/2.0/css/flat-ui.css"> -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/flat-ui/2.0/css/flat-ui.css"> 
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
@@ -22,43 +22,37 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <!-- jquery goodness-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <!-- smooth scrolling script -->
+    <script>
+        $(function () {
+            $('a[href*=#]:not([href=#])').click(function () {
+                if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html,body').animate({
+                            scrollTop: target.offset().top
+                        }, 1000);
+                        return false;
+                    }
+                }
+            });
+        });
+    </script>
+    
+    
 </head>
 
 <body>
 
-    <!-- Static navbar -->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    Menu
-                </button>
-                <a class="navbar-brand" href="#" style="color:white;">spreadthecode <sup>Alpha</sup></a>
-            </div>
-            <div class="navbar-collapse collapse navbar-right">
-                <ul class="nav navbar-nav">
-                    <li><a href="#">Home</a>
-                    </li>
-                    <li><a href="#about">About</a>
-                    </li>
-                    <li><a href="#about">Projects</a>
-                    </li>
-                    <li><a href="#about">Contact</a>
-                    </li>
-                </ul>
-                <!--<li><a href="#contact">Contact</a></li>
-          </ul>
-          <ul class="nav navbar-nav ">
-            <li><a href="../navbar/">Default</a></li>
-            <li class="active"><a href="./">Static top</a></li>
-            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-          </ul>-->
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </div>
-
+    <!-- include Static navbar -->
+<?php 
+    include 'navbar.php';
+?>
 
     <div class="container">
 
@@ -83,7 +77,7 @@
         </div>
         <!-- /row -->
 
-        <section id="#About"> 
+        <section id="About"> 
         
         <div class="row clearfix">
             <div class="col-md-4 column">
@@ -94,7 +88,7 @@
                     </div>
                     <div class="panel-body">
                         <img src="images/pc.jpg" class="img-responsive">
-                        Basic panel example
+                        <p class="steps">Learn to code using our 100% online Code Trainer. You can even skip this step if you already know how to code!</p>
                     </div>
                 </div>
 
@@ -108,7 +102,7 @@
                     </div>
                     <div class="panel-body">
                         <img src="images/calendar.jpg" class="img-responsive">
-                        Basic panel example
+                        <p class="steps">Next you need to setup the class with your local library</p>
                     </div>
                 </div>
 
@@ -122,7 +116,7 @@
                     </div>
                     <div class="panel-body">
                         <img src="images/gradcap.jpg" class="img-responsive">
-                        Basic panel example
+                        <p id="class"></p>Basic panel example
                     </div>
                 </div>
 
@@ -139,7 +133,7 @@
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
